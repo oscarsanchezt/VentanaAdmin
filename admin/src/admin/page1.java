@@ -11,19 +11,21 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
+import javax.swing.JPasswordField;
 
 public class page1 extends JPanel {
 	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
+	private JPasswordField passwordField;
 
 	/**
 	 * Create the panel.
 	 */
 	public page1() {
+		setBorder(null);
 		
-		setForeground(new Color(0, 1, 56));
-		setBackground(new Color(0, 1, 56));
+		setForeground(new Color(153, 193, 241));
+		setBackground(new Color(153, 193, 241));
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -38,12 +40,6 @@ public class page1 extends JPanel {
 		textField.setBounds(164, 168, 248, 27);
 		panel.add(textField);
 		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBackground(new Color(153, 193, 241));
-		textField_1.setColumns(10);
-		textField_1.setBounds(164, 214, 248, 27);
-		panel.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setBackground(new Color(153, 193, 241));
@@ -82,7 +78,15 @@ public class page1 extends JPanel {
 		separator_1.setBounds(12, 312, 400, 17);
 		panel.add(separator_1);
 		
+		passwordField = new JPasswordField();
+		passwordField.setEchoChar('*');
+		passwordField.setBackground(new Color(153, 193, 241));
+		passwordField.setForeground(new Color(0, 0, 0));
+		passwordField.setBounds(164, 217, 248, 27);
+		panel.add(passwordField);
+		
 		JPanel panel_1 = new JPanel();
+		panel_1.setForeground(new Color(153, 193, 241));
 		panel_1.setBackground(new Color(98, 160, 234));
 		panel_1.setBounds(0, 353, 441, 49);
 		add(panel_1);
