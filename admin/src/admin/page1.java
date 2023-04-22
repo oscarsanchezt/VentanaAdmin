@@ -9,112 +9,96 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import java.awt.Font;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import javax.swing.JPasswordField;
 
 public class page1 extends JPanel {
+	private JTextField textFieldNombre;
+	private DefaultListModel<String> listModel;
 	private JTextField textField;
-	private JTextField textField_2;
-	private JPasswordField passwordField;
+	private JTextField textField_1;
 
-	/**
-	 * Create the panel.
-	 */
-	public page1() {
+	public page1(DefaultListModel<String> listModel) {
+		this.listModel = listModel;
 		setBorder(null);
-		
 		setForeground(new Color(153, 193, 241));
-		setBackground(new Color(153, 193, 241));
+		setBackground(new Color(98, 160, 234));
 		setLayout(null);
-		
+		// USUARIO
+		textFieldNombre = new JTextField();
+		textFieldNombre.setBounds(164, 173, 248, 27);
+		add(textFieldNombre);
+		textFieldNombre.setBackground(new Color(153, 193, 241));
+		textFieldNombre.setColumns(10);
+
 		JPanel panel = new JPanel();
 		panel.setForeground(new Color(153, 193, 241));
-		panel.setBackground(new Color(63, 108, 191));
-		panel.setBounds(0, 0, 441, 353);
+		panel.setBackground(new Color(53, 132, 228));
+		panel.setBounds(0, 350, 441, 48);
 		add(panel);
 		panel.setLayout(null);
 		
+		JButton btnNewButton = new JButton("Guardar");
+		btnNewButton.setBounds(324, 12, 90, 30);
+		panel.add(btnNewButton);
+		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 14));
+		btnNewButton.setBackground(new Color(53, 132, 228));
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setForeground(new Color(0, 1, 56));
+
+		JButton btnNewButton_1 = new JButton("Cancelar");
+		btnNewButton_1.setFont(new Font("Dialog", Font.BOLD, 14));
+		btnNewButton_1.setForeground(Color.BLACK);
+		btnNewButton_1.setBackground(new Color(53, 132, 228));
+		btnNewButton_1.setBorderPainted(false);
+		btnNewButton_1.setBounds(219, 12, 93, 30);
+		panel.add(btnNewButton_1);
+
 		textField = new JTextField();
-		textField.setBackground(new Color(153, 193, 241));
-		textField.setBounds(164, 168, 248, 27);
-		panel.add(textField);
 		textField.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBackground(new Color(153, 193, 241));
-		textField_2.setColumns(10);
-		textField_2.setBounds(164, 262, 248, 27);
-		panel.add(textField_2);
-		
-		JLabel lblNewLabel = new JLabel("Nombre de usuario");
-		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblNewLabel.setBounds(12, 172, 146, 17);
-		panel.add(lblNewLabel);
-		
-		JLabel lblContrasea = new JLabel("Contraseña");
-		lblContrasea.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblContrasea.setBounds(65, 218, 93, 17);
-		panel.add(lblContrasea);
-		
+		textField.setBackground(new Color(153, 193, 241));
+		textField.setBounds(164, 227, 248, 27);
+		add(textField);
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBackground(new Color(153, 193, 241));
+		textField_1.setBounds(164, 281, 248, 27);
+		add(textField_1);
+
+		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblUsuario.setBounds(79, 173, 92, 22);
+		add(lblUsuario);
+
+		JLabel lblNewLabel = new JLabel("Contraseña");
+		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblNewLabel.setBounds(44, 227, 104, 22);
+		add(lblNewLabel);
+
 		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setForeground(new Color(51, 51, 51));
-		lblTelefono.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblTelefono.setBounds(86, 266, 72, 17);
-		panel.add(lblTelefono);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(page1.class.getResource("/images/icons8-cambiar-usuario-masculino-80.png")));
-		label.setBounds(178, 12, 93, 88);
-		panel.add(label);
+		lblTelefono.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblTelefono.setBounds(68, 281, 78, 22);
+		add(lblTelefono);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(new Color(153, 193, 241));
-		separator.setBounds(12, 133, 400, 23);
-		panel.add(separator);
+		separator.setBounds(33, 146, 379, 15);
+		add(separator);
 		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBackground(new Color(153, 193, 241));
-		separator_1.setBounds(12, 312, 400, 17);
-		panel.add(separator_1);
-		
-		passwordField = new JPasswordField();
-		passwordField.setEchoChar('*');
-		passwordField.setBackground(new Color(153, 193, 241));
-		passwordField.setForeground(new Color(0, 0, 0));
-		passwordField.setBounds(164, 217, 248, 27);
-		panel.add(passwordField);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setForeground(new Color(153, 193, 241));
-		panel_1.setBackground(new Color(98, 160, 234));
-		panel_1.setBounds(0, 353, 441, 49);
-		add(panel_1);
-		panel_1.setLayout(null);
-		
-		JButton btnNewButton = new JButton("Guardar");
-		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 14));
-		btnNewButton.setBackground(new Color(98, 160, 234));
-		btnNewButton.setBounds(322, 0, 107, 51);
-		btnNewButton.setBorderPainted(false);
-		panel_1.add(btnNewButton);
-		btnNewButton.setForeground(new Color(0, 1, 56));
-		
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.setFont(new Font("Dialog", Font.BOLD, 14));
-		btnNewButton_1.setForeground(new Color(36, 31, 49));
-		btnNewButton_1.setBackground(new Color(98, 160, 234));
-		btnNewButton_1.setBounds(222, 0, 101, 51);
-		btnNewButton_1.setBorderPainted(false);
-		panel_1.add(btnNewButton_1);
-		
-		// Agrega un ActionListener al botón "Guardar" para cerrar el panel page1 al hacer clic
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(page1.class.getResource("/images/icons8-cambiar-usuario-masculino-80.png")));
+		lblNewLabel_1.setBounds(188, 45, 84, 89);
+		add(lblNewLabel_1);
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nombre = textFieldNombre.getText();
+				listModel.addElement(nombre); // Agregar el nombre ingresado al modelo de datos
 				setVisible(false);
 			}
 		});
-
 	}
 }
-
